@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: pink;">
-      <a class="navbar-brand" href="#">
-        <img src="imgmvs/babbbbyme.ico" width="40" height="40" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>
-      T - Vagabonds Guide in Los Angeles
-    </title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
+    <title>T - Vagabonds Guide in Los Angeles</title>
+    <link rel="icon" href="babbbbyme.ico">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" />
     <!--Replace with your tailwind.css once created-->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
     <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
     <style>
-      
+      .gradient {
+        background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
       }
     </style>
   </head>
@@ -54,23 +51,11 @@
               <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#">link</a>
             </li>
           </ul>
-          <button
-            id="navAction"
-            class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-          >
-            Action
-          </button>
-          <!--form action="https://www.google.com/search" class="form-inline my-2 my-lg-0" method="get" name="searchform" target="_blank">
-              <input name="sitesearch" type="hidden" value="">
-              <input autocomplete="on" class="form-control mr-sm-2" name="q" placeholder="Search in example.com" required="required" type="text">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form-->
-          
           <div class="relative mx-auto text-gray-600 lg:block hidden ml-3 mr-3">
             <input
                 class="border-2 border-gray-300 bg-white h-10 pl-2 pr-8 rounded-lg text-sm focus:outline-none"
-                type="search" name="search" placeholder="Search">
-            <button type="submit" class="absolute right-0 top-0 mt-3 mr-2">
+                type="search" name="search" id="search" placeholder="Search">
+            <button id="search_button" type="submit" class="absolute right-0 top-0 mt-3 mr-2">
                 <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
                      version="1.1" id="Capa_1" x="0px" y="0px"
                      viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;"
@@ -708,6 +693,17 @@
     <!-- jQuery if you need it
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   -->
+    <script>
+      document.getElementById("search_button").addEventListener("click", function(){
+        search_in_google();
+      });
+
+      function search_in_google() {
+        let query_string = document.getElementById("search").value;
+        window.location.href = "https://www.google.com/search?q=" + query_string;
+      }
+    </script>
+
     <script>
       var scrollpos = window.scrollY;
       var header = document.getElementById("header");
